@@ -1,10 +1,15 @@
 class BooksController < ApplicationController
     def create
-         book = Book.new(book_params)
-    # ２. データをデータベースに保存するためのsaveメソッド実行
-    book.save
-    # ３. トップ画面へリダイレクト
-    redirect_to books_path
+      @book = Book.new(book_params)
+      # ２. データをデータベースに保存するためのsaveメソッド実行
+      @book.user_id = current_user.id
+      @book.save
+      # ３. トップ画面へリダイレクト
+      redirect_to book_path(@book.id)
+    end
+
+    def show
+      @book = Book.find(params[:id])
     end
 
     private

@@ -17,11 +17,11 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+
       <% if user_signed_in? %>
       <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
         <ul class="navbar-nav ml-auto">
-          <li><a class="fas fa-home nav-link text-light" href="/users/53654"> Home</a></li>
+          <li><%= link_to "Home", user_path(current_user), class:"fas fa-home nav-link text-light" %></li>
           <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
           <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
           <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> Log out</a></li>
@@ -29,9 +29,6 @@
       </div>
     </div>
   </nav>
-       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
      <% else %>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
