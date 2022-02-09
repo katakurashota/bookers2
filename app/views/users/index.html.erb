@@ -4,9 +4,6 @@
       <h2>User info</h2>
 
       <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-        <label for="inputImage">ProfileImage</label>
-
-
 
       <table class="table">
        <tbody>
@@ -22,7 +19,7 @@
       </table>
 
       <div class="row">
-        <a class="btn btn-outline-secondary btn-block edit_user_54872" href="/users/54872/edit">aaa<i class="fas fa-user-cog"></i></a>
+       <%= link_to "", edit_user_path(@user), class:"btn btn-outline-secondary btn-block" %>
       </div>
 
 

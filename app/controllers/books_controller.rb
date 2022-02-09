@@ -1,4 +1,10 @@
 class BooksController < ApplicationController
+  
+    def index 
+     @book = Book.new
+     @user = current_user
+    end 
+    
     def create
       @book = Book.new(book_params)
       # ２. データをデータベースに保存するためのsaveメソッド実行
@@ -10,7 +16,14 @@ class BooksController < ApplicationController
 
     def show
       @book = Book.find(params[:id])
+      @newbook = Book.new
+      @user = @book.user
     end
+    
+    def edit
+     @book = Book.find(params[:id])
+    end
+    
 
     private
   # ストロングパラメータ
